@@ -1,0 +1,30 @@
+<p>
+  {{peligro}}
+  <!-- <div  class="alert " role="alert" [ngClass]="{'alert-danger':peligro==true}">
+    A simple primary alert—check it out!
+  </div> -->
+
+<div  class="alert " role="alert" [ngClass]="{'alert-danger':peligro==true,'alert-success':peligro==false}">
+    A simple primary alert—check it out!
+  </div>
+
+  <button class ="btn btn-success" (click)="peligro=false">Todo bien</button>
+  <button class ="btn btn-danger" (click)="peligro=true">En peligro</button>
+
+{{cargando}}
+<button class="btn btn-primary" (click)="guardarData()">
+  <i class="fa" [ngClass]="{'fas fa-snowflake': cargando==true,'fas fa-spin': cargando==true, 'far fa-save':cargando==false}"></i>
+  <span *ngIf="!cargando">Guardar Cambios</span>
+  <span *ngIf="cargando">Espere un momento</span>
+</button>
+<p>
+  Ejemplo del ng switch:
+
+  <p>
+
+<div [ngSwitch]="peligro">
+  <div *ngSwitchCase="true" class="alert alert-danger" role="alert">
+        A simple danger alert—check it out!
+  </div>
+  <div *ngSwitchDefault class="alert alert-dark" role="alert">A simple dark alert—check it out!</div>
+</div>

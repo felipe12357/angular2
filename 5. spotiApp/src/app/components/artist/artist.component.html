@@ -1,0 +1,51 @@
+<div class="container padding-top">
+
+  <div class="row">
+    <div class="col-md-3">
+        <img [src]="artista.images | sinFoto" class="img-thumbnail img-mediana img-circle"  >
+    </div>
+    <div class="col-md-9 padding-top">
+      <h2>  {{artista.name}}</h2>
+      <hr>
+      <button type="button" [routerLink]="['/search']" class="btn btn-sm btn-light">Regresar</button>
+
+      <a [href]="artista.external_urls?.spotify" target="_blank" class="btn btn-sm btn-success">Ver Externo</a>
+    </div>
+  </div>
+
+  <div class="row padding-top" >
+    <table class="table table-dark">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Foto</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Album</th>
+          <th scope="col">Popularidad</th>
+          <th scope="col">Muestra</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr  *ngFor="let cancion of topCanciones let i=index">
+          <td># {{i+1}}</td>
+          <td><img [src]="cancion.album?.images | sinFoto" class="img-peque"></td>
+          <td>{{cancion.name}}</td>
+          <td>{{cancion.album.name}}</td>
+          <td>{{cancion.popularity}}</td>
+          <td>
+              <audio controls>
+                <source [src]="cancion.preview_url">
+                  Tu navegador es muy viejo
+              </audio>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+<!--    <div class="col-md-4 puntero text-center"  *ngFor="let cancion of topCanciones">
+              <img [src]="cancion.album?.images | sinFoto" class="img-thumbnail">
+      <p>{{cancion.name}} <p>{{cancion.album.name}}
+
+    </div>
+-->
+  </div>
+</div>

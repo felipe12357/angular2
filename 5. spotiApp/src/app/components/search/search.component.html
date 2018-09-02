@@ -1,0 +1,33 @@
+<div class="container padding-top">
+  <div class="row">
+    <div class="col-md-4">
+      <label for="termino"><h4>Buscar Artista</h4></label>
+        <!--  [(ngModel)]="termino" De esta forma asocia el input al termino-->
+        <!-- De esta forma es necesario importar un modulo de formularios-->
+        <br>Metodo con formularios<br>
+       <input type="text" class="form-control-sm" placeholder="Busque artista ..." [(ngModel)]="termino" (keyup)="buscarArtista()">
+       <br>
+       <!-- Esta fue la forma utilizada en el proyecto de los heroes -->
+       <!-- Se ejecuta al presionar Enter -->
+       Metodo primera aplicacion
+       <input type="text" class="form-control-sm" placeholder="Busque artista ..."(keyup)="asociarVariableTermino(inputBuscar.value)" #inputBuscar>
+
+
+    </div>
+
+    <div class="col-md-8" *ngIf="termino.length>1">
+        {{termino}}
+        <hr >
+        <div class="row " >
+          <div class="col-md-4 puntero text-center" [routerLink]="['/artist',artista.id]" *ngFor="let artista of _spotify.artistas">
+            <img [src]="artista.images | sinFoto" class="img-thumbnail">
+            <p>{{artista.name}}
+
+          </div>
+        </div>
+        <!--<ul *ngFor="let artista of _spotify.artistas">
+          <li>{{artista.name}}</li>
+        </ul>-->
+    </div>
+  </div>
+</div>

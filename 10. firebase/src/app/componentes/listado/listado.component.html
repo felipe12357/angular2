@@ -1,0 +1,62 @@
+<h2>Heroes</h2>
+
+<div class="row">
+  <div class="col-md-12 text-right">
+    <button [routerLink]="['/heroe','nuevo']" class="btn btn-outline-primary btn-sm">
+      Nuevo Heroe
+    </button>
+    <br><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Casa</th>
+          <th scope="col">Nvl</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td colspan="5" *ngIf="loading1">
+            <div class="alert alert-info" role="alert">
+               Cargando .. espere por favor
+              </div>
+          </td>
+        </tr>  
+        <tr *ngFor="let heroe of heroes; let i=index">
+          <th>{{i+1}}</th>
+          <td>{{heroe.nombre}}</td>
+          <td>{{heroe.casa}}</td>
+          <td>{{heroe.nvlPoder}}</td>
+          <td>
+            <button class="btn-sm btn-outline-warning btn"  [routerLink]="['/heroe',heroe.id]">Editar</button>
+            <button class="btn-sm btn-outline-danger btn" (click)="borrar(heroe.id)" >Borrar</button>
+          </td>
+        </tr>
+        <tr><td colspan="5" style="text-align: center;font-weight: bold">Metodo 2</td></tr>
+        <tr>
+          <td colspan="5" *ngIf="loading2">
+              <div class="alert alert-info" role="alert">
+                  Cargando .. espere por favor
+                </div>
+          </td>
+        </tr>
+        <tr *ngFor="let k of heroes2 |obj; let i=index">
+            <th>{{i+1}}</th>
+            <td>{{heroes2[k].nombre}}</td>
+            <td>{{heroes2[k].casa}}</td>
+            <td>{{heroes2[k].nvlPoder}}</td>
+            <td>
+              <button class="btn-sm btn-outline-warning btn"  [routerLink]="['/heroe',k]">Editar</button>
+              <button class="btn-sm btn-outline-danger btn" (click)="borrar2(k)" >Borrar</button>
+            </td> 
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+

@@ -1,0 +1,39 @@
+<p>
+  gestion works!
+</p>
+<button [routerLink]="['listar']" class="btn btn-outline-primary btn-sm">
+  Regresar
+</button>
+<button (click)="agregarNuevo(forma)" class="btn btn-outline-primary btn-sm">
+ Nuevo Heroe
+</button>
+<h3>Heroe
+  <small>{{heroe.nombre}}</small>
+</h3>
+<div class="row">
+  <div class="col-md-12">
+    <form (ngSubmit)="guardar(forma)" #forma="ngForm" novalidate="">
+      <div class="form-group">
+        <label>Nombre</label>
+        <input type="text"  class="form-control" required placeholder="nombre" [(ngModel)]="heroe.nombre" name="nombre">
+      </div>
+      <div class="form-group">
+        <label>Escala de poder</label>
+        <input type="number" name="nvlPoder" class="form-control" required [(ngModel)]="heroe.nvlPoder">
+      </div>
+      <div class="form-group">
+        <label>Casa</label>
+        <select name="casa" class="form-control" required [(ngModel)]="heroe.casa">
+          <option value="Marvel">Marvel</option>
+          <option value="DC">DC</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-outline-primary" [disabled]="!forma.valid">
+          Guardar
+        </button>
+        {{forma.valid}}
+      </div>
+    </form>
+  </div>
+</div>

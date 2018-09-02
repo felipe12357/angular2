@@ -1,0 +1,21 @@
+<div class="container-fluid">
+  <div class="row paddingTop">
+
+    <div class="col-md-6">
+      <div class="card" style="width: 18rem;">
+        <div  class="card-body"  >
+          <h5 class="card-title">Special title treatment</h5>
+          <p  class="card-text" *ngIf="MostrarTexto" >With supporting text below as a natural lead-in to additional content.</p>
+          <a href="#" class="btn btn-primary" (click)="ocultarContenido()">Mostrar / Ocultar</a>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-md-6">
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let item of amigos; let i=index">{{i+1}}. {{item}}</li>
+      </ul>
+    </div>
+  </div>
+</div>

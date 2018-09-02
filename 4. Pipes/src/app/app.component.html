@@ -1,0 +1,135 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="container">
+<br><br>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th >Variable</th>
+        <th >Pipe</th>
+        <th>Producto</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td >{{nombre}}</td>
+        <td>lowerCase</td>
+        <td>{{nombre | lowercase}}</td>
+      </tr>
+      <tr>
+        <td >{{nombre}}</td>
+        <td>Uppcase</td>
+        <td>{{nombre | uppercase}}</td>
+      </tr>
+      <tr>
+        <td >{{nombre}}</td>
+        <td>slice 3</td>
+        <td>{{nombre | slice:3}}</td>
+      </tr>
+      <tr>
+        <td >{{arr}}</td>
+        <td>slice 3</td>
+        <td>{{arr | slice:3}}</td>
+      </tr>
+      <tr>
+        <td >{{nombre}}</td>
+        <td>slice 0-3</td>
+        <td>{{nombre | slice:0:3}}</td>
+      </tr>
+      <tr>
+        <td >{{arr}}</td>
+        <td>slice  0-3</td>
+        <td>{{arr | slice:0:3}}</td>
+      </tr>
+      <tr>
+        <td >{{PI}}</td>
+        <td>number</td>
+        <td>{{PI | number}}</td>
+      </tr>
+      <tr>
+        <td >{{PI}}</td>
+        <td>number '1.5-5' 1 entero minimo y maximo 5 decimales</td>
+        <td>{{PI | number:'1.5-5'}}</td>
+      </tr>
+      <tr>
+        <td >{{persona.aumento}}</td>
+        <td>percent</td>
+        <td>{{persona.aumento | percent}}</td>
+      </tr>
+      <tr>
+        <td >{{persona.aumento}}</td>
+        <td>percent 2.2-2</td>
+        <td>{{persona.aumento | percent:'2.2-2'}}</td>
+      </tr>
+      <tr>
+        <td >{{persona.salario}}</td>
+        <td>currency</td>
+        <td>{{persona.salario | currency}}</td>
+      </tr>
+      <tr>
+        <td >{{persona.salario}}</td>
+        <td>currency euro</td>
+        <td>{{persona.salario | currency:'EUR'}}</td>
+      </tr>
+      <tr>
+        <td >{{persona.salario}}</td>
+        <td>currency EURO false</td>
+        <td>{{persona.salario | currency:'EUR':'symbol'}}</td>
+      </tr>
+      <tr>
+        <td >{{persona.salario}}</td>
+        <td>currency colombia</td>
+        <td>{{persona.salario | currency:'COP'}}</td>
+      </tr>
+      <tr>
+        <td >{{persona.salario}}</td>
+        <td>currency colombia con formato numerico</td>
+        <td>{{persona.salario | currency:'COP':'symbol':'1.0-0'}}</td>
+      </tr>
+
+      <tr>
+        <td >{{valorDePromesa}}</td>
+        <td>async</td>
+        <td>{{valorDePromesa | async}}</td>
+      </tr>
+      <tr>
+        <td >{{persona.fechaNacimiento}}</td>
+        <td>Fecha</td>
+        <td>{{persona.fechaNacimiento | date}}</td>
+      </tr>
+      <tr>
+        <td >{{persona.fechaNacimiento}}</td>
+        <td>Fecha medium</td>
+        <td>{{persona.fechaNacimiento | date:'medium'}}</td>
+      </tr>
+      <tr>
+        <td >{{persona.fechaNacimiento}}</td>
+        <td>Fecha MMMM - dd</td>
+        <td>{{persona.fechaNacimiento | date:'MMMM - dd'}}</td>
+      </tr>
+      <tr>
+        <td >{{nombreRaro}}</td>
+        <td>PIPE personalizado</td>
+        <td>{{nombreRaro | pipeCapitalizado}}</td>
+      </tr>
+      <tr>
+        <td >{{nombreRaro}}</td>
+        <td>PIPE personalizado on parametros</td>
+        <td>{{nombreRaro | pipeCapitalizado:false}}</td>
+      </tr>
+      <tr>
+        <td >{{nombreRaro}}</td>
+        <td>contrasena <button type="button" class="btn btn-primary"(click)="cambiar()"> {{this.textoMostrar}}</button></td>
+        <td> {{nombreRaro | contrasena:this.mostrar}} {{ this.mostrar}}</td>
+      </tr>
+    </tbody>
+  </table>
+<h4>Video youtube </h4>
+<iframe width="560" height="315" [src]="video|domSeguro:'https://www.youtube.com/embed/'" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<h4> Frmato json</h4>
+{{persona | json}}
+  <h4> slice en lista</h4>
+  <ul *ngFor="let item of arr | slice:0:3">
+    <li>{{item}}</li>
+  </ul>
+
+</div><iframe width="560" height="315" src="https://www.youtube.com/embed/-2VPKWwl5Rw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
